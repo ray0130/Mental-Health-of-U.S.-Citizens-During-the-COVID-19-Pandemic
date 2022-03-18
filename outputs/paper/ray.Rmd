@@ -9,6 +9,7 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 library(haven)
 library(tidyverse)
+library(ggplot2)
 ```
 
 Load Data
@@ -21,6 +22,83 @@ plot
 ```{r}
 # Mental Health Male vs Female
 
+male_female_mental <- raw_data %>% select(c(hlthmntl, sex)) %>%
+  mutate(sex = case_when(
+    sex == 1 ~ "Male",
+    sex == 2 ~ "Female",
+    sex == 3 ~ "Transgender",
+    sex == 4 ~ "None of these",
+  )) %>% group_by(sex)
 
+male_female_mental %>% ggplot(aes(x=hlthmntl, fill=sex)) +
+  geom_histogram(aes(y = ..density..), position = 'dodge')
 ```
+
+
+mental health vs age groups
+
+```{r}
+age_group <- raw_data %>% select(c(hlthmntl, age)) %>%
+  mutate(age = case_when(
+    age < 20 ~ "< 20",
+    age < 30 ~ "< 30",
+    age < 40 ~ "< 40",
+    age < 50 ~ "< 50",
+    age < 60 ~ "< 60",
+    age >= 60 ~ ">= 60",
+  )) %>% group_by(age)
+
+age_group %>% ggplot(aes(x=hlthmntl, fill=age)) +
+  geom_histogram(aes(y = ..density..), position = 'dodge')
+```
+
+Mental vs physical 
+
+```{r}
+mental_phsy <- raw_data %>% select(c(hlthmntl, hlthphys, age, sex)) %>%
+  mutate(age = case_when(
+    age < 20 ~ "< 20",
+    age < 30 ~ "< 30",
+    age < 40 ~ "< 40",
+    age < 50 ~ "< 50",
+    age < 60 ~ "< 60",
+    age >= 60 ~ ">= 60",
+  )) %>%
+  mutate(sex = case_when(
+    sex == 1 ~ "Male",
+    sex == 2 ~ "Female",
+    sex == 3 ~ "Transgender",
+    sex == 4 ~ "None of these",
+  ))
+
+mental_phsy  %>% ggplot(aes(x=hlthmntl, y=hlthphys)) +
+  geom_point(aes(color=age), position = 'dodge')
+  
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
