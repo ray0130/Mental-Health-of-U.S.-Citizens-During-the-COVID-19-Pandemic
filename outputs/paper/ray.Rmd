@@ -1,0 +1,26 @@
+---
+title: "ray"
+author: "Ray Wen"
+date: "3/18/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(haven)
+library(tidyverse)
+```
+
+Load Data
+```{r}
+raw_data <- read.csv("../data/raw_gss.csv")
+```
+
+
+plot
+```{r}
+# Mental Health Male vs Female
+
+
+```
+
