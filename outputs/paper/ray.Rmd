@@ -10,6 +10,11 @@ knitr::opts_chunk$set(echo = TRUE)
 library(haven)
 library(tidyverse)
 library(ggplot2)
+library("readxl")
+library(dplyr)
+library(tidyverse)
+library(vtable)
+
 ```
 
 Load Data
@@ -76,6 +81,28 @@ mental_phsy  %>% ggplot(aes(x=hlthmntl, y=hlthphys)) +
   
 ```
 
+
+sexual orientation
+
+```{r}
+sexornt_data <- raw_data %>% select(c(sexornt, hlthmntl)) %>% filter(!is.na(sexornt), !is.na(hlthmntl)) %>%
+  mutate(sexornt = case_when(
+    sexornt <= 2 ~ "LGBTQ+",
+    sexornt == 3 ~ "Heterosexual",
+  )) %>%
+  mutate(mntl_poor = case_when(
+    hlthmntl <= 3 ~ 'Good',
+    hlthmntl >= 4 ~ 'Not Good',
+  ))
+
+sexornt_data %>% ggplot(aes(x= mntl_poor,  group=sexornt))+
+  geom_bar(aes(y = ..prop.., fill = factor(..x..)), stat="count") +
+  geom_text(aes( label = scales::percent(..prop..),
+                 y= ..prop.. ), stat= "count", vjust = -.5) +
+  labs(y = "Percent", fill="mntl_poor") +
+  facet_grid(~sexornt) +
+  scale_y_continuous(labels = scales::percent)
+```
 
 
 
