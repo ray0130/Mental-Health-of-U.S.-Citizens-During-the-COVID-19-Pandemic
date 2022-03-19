@@ -179,12 +179,12 @@ income_data %>% ggplot(aes(x= mntl_poor,  group=income))+
 ```{r}
 first_born <- raw_data %>% select(c(hlthmntl, agekdbrn)) %>% filter(!is.na(agekdbrn), !is.na(hlthmntl)) %>%
   mutate(born = case_when(
-    agekdbrn <= 18 ~ "1",
-    agekdbrn <= 25 ~ "2",
-    agekdbrn <= 30 ~ "3",
-    agekdbrn <= 40 ~ "4",
-    agekdbrn <= 50 ~ "5",
-    agekdbrn > 50 ~ "6",
+    agekdbrn < 18 ~ '< 18',
+    agekdbrn >= 18 & agekdbrn <= 29 ~ '18-29',
+    agekdbrn >= 30 & agekdbrn <=39~ '30-39',
+    agekdbrn >= 40 & agekdbrn <=49~ '40-49',
+    agekdbrn >= 50 & agekdbrn <=64~ '50-64',
+    agekdbrn >= 65 & agekdbrn <=89~ '65-89'
 
   )) %>%
   mutate(mntl_poor = case_when(
