@@ -105,13 +105,104 @@ sexornt_data %>% ggplot(aes(x= mntl_poor,  group=sexornt))+
 ```
 
 
+EDA
+
+```{r}
+
+# % missing hlthmntl entries 0.09
+n <- length(raw_data$hlthmntl)
+length(which(is.na(raw_data$hlthmntl)))/n
+
+```
 
 
 
+```{r}
+class_data <- raw_data %>% select(c(hlthmntl, class)) %>% filter(!is.na(class), !is.na(hlthmntl)) %>%
+  mutate(class_d = case_when(
+    class == 1 ~ "lower",
+    class == 2 ~ "working",
+    class == 3 ~ "lower middle",
+    class == 4 ~ "middle",
+    class == 5 ~ "upper middle",
+    class == 6 ~ "upper",
+    
+  )) %>%
+  mutate(mntl_poor = case_when(
+    hlthmntl <= 3 ~ 'Good',
+    hlthmntl >= 4 ~ 'Not Good',
+  ))
+  
+class_data %>% ggplot(aes(x=hlthmntl, fill=class_d)) +
+  geom_histogram(aes(y = ..density..), position = 'dodge')
+
+class_data %>% ggplot(aes(x= mntl_poor,  group=class_d))+
+  geom_bar(aes(y = ..prop.., fill = factor(..x..)), stat="count") +
+  geom_text(aes( label = scales::percent(..prop..),
+                 y= ..prop.. ), stat= "count", vjust = -.5) +
+  labs(y = "Percent", fill="mntl_poor") +
+  facet_grid(~class_d) +
+  scale_y_continuous(labels = scales::percent)
+```
 
 
 
+```{r}
+income_data <- raw_data %>% select(c(hlthmntl, income16)) %>% filter(!is.na(income16), !is.na(hlthmntl)) %>%
+  mutate(income = case_when(
+    income16 <= 8 ~ "lowest",
+    income16 <= 12 ~ "lower",
+    income16 <= 17 ~ "lower middle",
+    income16 <= 19 ~ "middle",
+    income16 <= 21 ~ "upper middle",
+    income16 > 21 ~ "upper",
+    
+  )) %>%
+  mutate(mntl_poor = case_when(
+    hlthmntl <= 3 ~ 'Good',
+    hlthmntl >= 4 ~ 'Not Good',
+  ))
+  
+income_data %>% ggplot(aes(x=hlthmntl, fill=income)) +
+  geom_histogram(aes(y = ..density..), position = 'identity', alpha=0.3)
 
+income_data %>% ggplot(aes(x= mntl_poor,  group=income))+
+  geom_bar(aes(y = ..prop.., fill = factor(..x..)), stat="count") +
+  geom_text(aes( label = scales::percent(..prop..),
+                 y= ..prop.. ), stat= "count", vjust = -.5) +
+  labs(y = "Percent", fill="mntl_poor") +
+  facet_grid(~income) +
+  scale_y_continuous(labels = scales::percent)
+```
+
+
+```{r}
+first_born <- raw_data %>% select(c(hlthmntl, agekdbrn)) %>% filter(!is.na(agekdbrn), !is.na(hlthmntl)) %>%
+  mutate(born = case_when(
+    agekdbrn <= 18 ~ "1",
+    agekdbrn <= 25 ~ "2",
+    agekdbrn <= 30 ~ "3",
+    agekdbrn <= 40 ~ "4",
+    agekdbrn <= 50 ~ "5",
+    agekdbrn > 50 ~ "6",
+
+  )) %>%
+  mutate(mntl_poor = case_when(
+    hlthmntl <= 3 ~ 'Good',
+    hlthmntl >= 4 ~ 'Not Good',
+  ))
+  
+first_born %>% ggplot(aes(x=hlthmntl, fill=born)) +
+  geom_histogram(aes(y = ..density..), position = 'dodge')
+
+first_born %>% ggplot(aes(x= mntl_poor,  group=born))+
+  geom_bar(aes(y = ..prop.., fill = factor(..x..)), stat="count") +
+  geom_text(aes( label = scales::percent(..prop..),
+                 y= ..prop.. ), stat= "count", vjust = -.5) +
+  labs(y = "Percent", fill="mntl_poor") +
+  facet_grid(~born) +
+  scale_y_continuous(labels = scales::percent)
+```
 
 
 
