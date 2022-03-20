@@ -118,14 +118,14 @@ length(which(is.na(raw_data$hlthmntl)))/n
 
 
 ```{r}
-class_data <- raw_data %>% select(c(hlthmntl, class)) %>% filter(!is.na(class), !is.na(hlthmntl)) %>%
+class_data <- raw_data %>% select(c(hlthmntl, class1)) %>% filter(!is.na(class1), !is.na(hlthmntl)) %>%
   mutate(class_d = case_when(
-    class == 1 ~ "lower",
-    class == 2 ~ "working",
-    class == 3 ~ "lower middle",
-    class == 4 ~ "middle",
-    class == 5 ~ "upper middle",
-    class == 6 ~ "upper",
+    class1 == 1 ~ "lower",
+    class1 == 2 ~ "working",
+    class1 == 3 ~ "lower middle",
+    class1 == 4 ~ "middle",
+    class1 == 5 ~ "upper middle",
+    class1 == 6 ~ "upper",
     
   )) %>%
   mutate(mntl_poor = case_when(
@@ -164,7 +164,7 @@ income_data <- raw_data %>% select(c(hlthmntl, income16)) %>% filter(!is.na(inco
   ))
   
 income_data %>% ggplot(aes(x=hlthmntl, fill=income)) +
-  geom_histogram(aes(y = ..density..), position = 'identity', alpha=0.3)
+  geom_histogram(aes(y = ..density..), position = 'dodge', alpha=1)
 
 income_data %>% ggplot(aes(x= mntl_poor,  group=income))+
   geom_bar(aes(y = ..prop.., fill = factor(..x..)), stat="count") +
@@ -187,7 +187,7 @@ first_born <- raw_data %>% select(c(hlthmntl, agekdbrn)) %>% filter(!is.na(agekd
     agekdbrn >= 65 & agekdbrn <=89~ '65-89'
 
   )) %>%
-  mutate(mntl_poor = case_when(
+  mutate(mntl_poor = case_when(1
     hlthmntl <= 3 ~ 'Good',
     hlthmntl >= 4 ~ 'Not Good',
   ))
@@ -205,6 +205,12 @@ first_born %>% ggplot(aes(x= mntl_poor,  group=born))+
 ```
 
 
+# Older ppl % in upper class
+```{r}
+old_upper <- raw_data %>% select(c(age, class1))
+
+length(which(old_upper$age > 50 & old_upper$class1 == 6)) / length(which(old_upper$class1 == 6))
+```
 
 
 
