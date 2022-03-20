@@ -206,9 +206,18 @@ first_born %>% ggplot(aes(x= mntl_poor,  group=born))+
 
 # Older ppl % in upper class
 ```{r}
-old_upper <- raw_data %>% select(c(age, class1))
+old_upper <- raw_data %>% select(c(age, class1, income16, hlthmntl))
+length(which(old_upper$age > 50 & old_upper$class1 == 6 & old_upper$income16 < 21)) 
+length(which(old_upper$age > 50 & old_upper$class1 == 6 & old_upper$income16 > 21)) / length(which(old_upper$class1 == 6 & old_upper$age > 50))
+length(which(old_upper$class1 == 6 & old_upper$age > 50))
 
-length(which(old_upper$age > 50 & old_upper$class1 == 6)) / length(which(old_upper$class1 == 6))
+length(which(old_upper$age > 50))
+
+length(which(old_upper$class1 == 6))
+
+
+
+
 ```
 
 
