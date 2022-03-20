@@ -95,7 +95,7 @@ gss2021 <- gss2021 %>%
 #=============================================================================
 
 # Percent Graph - Mental health (Age Group Analysis)
-gss2021 %>% filter(!is.na(`Mental Health`), !is.na(sex_group),!is.na(`Age Group`)) %>%
+gss2021 %>% filter(!is.na(`Mental Health`),!is.na(`Age Group`)) %>%
   ggplot(aes(x= `Mental Health`,  group=`Age Group`)) +
   geom_bar(aes(y = ..prop.., fill = factor(..x..)), stat="count") +
   geom_text(aes( label = scales::percent(..prop..),
