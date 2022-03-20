@@ -150,12 +150,12 @@ class_data %>% ggplot(aes(x= mntl_poor,  group=class_d))+
 ```{r}
 income_data <- raw_data %>% select(c(hlthmntl, income16)) %>% filter(!is.na(income16), !is.na(hlthmntl)) %>%
   mutate(income = case_when(
-    income16 <= 8 ~ "lowest",
-    income16 <= 12 ~ "lower",
-    income16 <= 17 ~ "lower middle",
-    income16 <= 19 ~ "middle",
-    income16 <= 21 ~ "upper middle",
-    income16 > 21 ~ "upper",
+    income16 <= 8 ~ "< $10,000",
+    income16 <= 12 ~ "$10,000 - $20,000",
+    income16 <= 17 ~ "$20,000 - $40,000",
+    income16 <= 19 ~ "$40,000 - $60,000",
+    income16 <= 21 ~ "$60,000 - $90,000",
+    income16 > 21 ~ "> $90,000",
     
   )) %>%
   mutate(mntl_poor = case_when(
@@ -185,9 +185,8 @@ first_born <- raw_data %>% select(c(hlthmntl, agekdbrn)) %>% filter(!is.na(agekd
     agekdbrn >= 40 & agekdbrn <=49~ '40-49',
     agekdbrn >= 50 & agekdbrn <=64~ '50-64',
     agekdbrn >= 65 & agekdbrn <=89~ '65-89'
-
   )) %>%
-  mutate(mntl_poor = case_when(1
+  mutate(mntl_poor = case_when(
     hlthmntl <= 3 ~ 'Good',
     hlthmntl >= 4 ~ 'Not Good',
   ))
