@@ -9,7 +9,7 @@
 
 
 ####Workplace Setup####
-raw_data <- haven::read_dta("D:/Downloads/Downloads/2021_stata/gss2021.dta") ## <--- Change the link to proper folder
+raw_data <- haven::read_dta("inputs/data/2021_stata/gss2021.dta")
 
 gss2021 <- raw_data
 #=============================================================================
