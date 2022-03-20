@@ -9,6 +9,11 @@
 
 
 ####Workplace Setup####
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(haven)
+
 raw_data <- haven::read_dta("inputs/data/2021_stata/gss2021.dta")
 
 gss2021 <- raw_data
