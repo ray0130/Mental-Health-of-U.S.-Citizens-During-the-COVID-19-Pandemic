@@ -1,11 +1,11 @@
 ---
-title: "Age and gender in the 2021 US GSS"
-subtitle: "Possible selection effect in ages 18-35"
+title: "What are the contributing factors to poor mental health in U.S?"
+subtitle: "Analysis of US General Social Survey of 2021"
 author: 
   - Ray Wen, Isfandyar Virani, Rayhan Walia
 thanks: "Code and data are available at: https://github.com/ray0130/usa_gss."
 date: "`r format(Sys.time(), '%d %B %Y')`"
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+abstract: "In this paper, the 2021 US General Social Survey was analyzed to examine how mental health affects different parts of the population during the COVID-19 pandemic. The analysis was able to determine that Male participants, participants with poor physical health, Younger Age Groups between 18 and 29, LGBTQ+, participants with lower income and low social class, and participants that had their firstborn child at a younger age have poor mental health compared to their counterparts. This is an important result as it can help policymakers to take appropriate actions to reduce mental health suffering which can in-turn reduce long-term social and economical costs for society."
 output:
   bookdown::pdf_document2
 toc: FALSE
@@ -14,36 +14,33 @@ bibliography: references.bib
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
 ####Workplace Setup####
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
 library(haven)
-
 raw_data <- haven::read_dta("../../inputs/data/2021_stata/gss2021.dta")
-
 gss2021 <- raw_data
 ```
 
 # Introduction
 
-Mental health is a growing problem in the world, with a 13% worldwide increase in the last decade ([cite]), which makes this an important point for policymakers in government. During the last two years, the COVID-19 pandemic has not helped the situation either, causing a dramatic increase in anxiety and depression across the United States ([cite]). 
+Mental health is a growing problem in the world, with a 13% worldwide increase in the last decade [@worldhealthorganization], which makes this an important point for policymakers in government. During the last two years, the COVID-19 pandemic has not helped the situation either, causing a dramatic increase in anxiety and depression across the United States [@mentalhealthamerica]. 
 
-In this report, we monitor the mental health status of adults (over 18) in the United States, through the COVID-19 pandemic. We observe various groups (of sex, sexual orientation, social and income class) and how they are affected by mental health. This report provides an understanding for extreme cases such as the pandemic, and via collecting as much data as possible, a solution could be made to combat this problem. The effect of the pandemic on the survey itself is also noticeable, with the dramatic decrease in response rate (over 50% before the pandemic to 17.4% for GSS 2021) due to the shift to the web-based system. This can be easily rectified in the future (with the lack of COVID-19), but not much can be done in an extreme case such as the pandemic. 
+In this report, we monitor the mental health status of adults (over 18) in the United States, through the COVID-19 pandemic. We observe various groups (of sex, sexual orientation, social and income class) and how they are affected by mental health. This report provides an understanding of extreme cases such as the pandemic, and via collecting as much data as possible, a solution could be made to combat this problem. The effect of the pandemic on the survey itself is also noticeable, with the dramatic decrease in response rate (over 50% before the pandemic to 17.4% for GSS 2021) due to the shift to the web-based system. This can be easily rectified in the future (with the lack of COVID-19), but not much can be done in an extreme case such as the pandemic. 
 
 Trends were noticed in all segregations, with younger and poorer (by income) respondents showing significantly worse mental health. A comparison to respondents’ physical health was also made, with a notable number of respondents being physically healthy but mentally unhealthy.  Members of the LGBTQ+ community also show significantly poorer mental health than those of the heterosexual community. Finally, the social class was also assessed, based on self-identification; which yielded a similar trend to the income class (poorer had more mentally unhealthy respondents), except for the upper-most class; which showed a dramatic increase in poor mental health. These trends are crucial for the government, explicitly showcasing who needs the most help. With the help of policies, one could decrease the poor mental health rate in many of these classes, via analyzing which section of the class needs it most.
 
 
 # Data
 
-To get better insights on what factors affect Mental health for different parts of the population, we utilized the 2021 US General Social Survey [cite] from NORC at the University of Chicago [CITE]. The raw dataset is a Stata file and was imported in R using the package Haven. It includes data from 568 Survey Questions for 4032 Survey Participants. Using the R package [CITE] tidyverse and dplyr [cite], we were able to clean and perform exploratory data analysis on the dataset to get insights into the data. Further, we used R package ggplot2 [CITE] to visualize the data for this paper. 
+To get better insights on what factors affect Mental health for different parts of the population, we utilized the 2021 US General Social Survey [@norc] from NORC at the University of Chicago [@norc-at-the-university-of-chicago]. The raw dataset is a Stata file and was imported in R using the package Haven. It includes data from 568 Survey Questions for 4032 Survey Participants. Using the R [@citeR] package tidyverse [@citetidyverse] and dplyr [@dplyr], we were able to clean and perform exploratory data analysis on the dataset to get insights into the data. Further, we used R package ggplot2 [@citeggplot2] to visualize the data for this paper. 
 
-The survey of interest in this report is the General Social Survey (GSS [CITE GSS]), one that monitors pubic opinion and behavior in the United States. It has been conducted since 1972 by the NORC at the University of Chicago and funded by the National Science Foundation(NSF); aiming to minimize all changes via retaining similar sampling and questioning approaches. [MAYBE A LITTLE MORE ON SURVEY]
+The survey of interest in this report is the General Social Survey [@norc], one that monitors pubic opinion and behavior in the United States. It has been conducted since 1972 by the NORC at the University of Chicago and funded by the National Science Foundation(NSF); aiming to minimize all changes via retaining similar sampling and questioning approaches.
 In each round, the GSS contains a set of repeating modules and a section of topical modules that is subject to change in every round and each participant will be given a subset of repeating modules and topical modules (it may not contain all modules).
 
 ## Sample
-[TABLE 1 GSS CODEBOOK. TALK ABOUT ASPECTS]
+
 
 In this survey, the sample of focus were adults, 18 years of age or older, residing in a noninstitutional (privately owned) home in the United States. Due to the recent pandemic, and the implications on in-person activities; the materials were mailed to people showing them a web link as an invitation. The addresses were provided from the NORC National Sampling Frame as well as the United States Postal Service (USPS) Computerized Delivery Seuquence File (CDS). A phone option was also provided, but respondents were pushed to the web survey first. With a response rate of 17.4%, a total of 4,032 surveys were completed; from December 1, 2020 to May 3, 2021. 88.3% of those respondents completed the survey via the web, and 11.7% completed it via the phone.
 
@@ -53,7 +50,7 @@ Weights had to be carefully placed to account for various factors; such as popul
 
 ## Qualities 
 
-The GSS has further made changes to the survey response options as a result of the shift from in-person interviews to web and phone-based interviews. Originally the survey contains “volunteered responses” that are not displayed to the responders and is used by the interviewer. An example would be the option “about right” in response to the question “In general, do you think the courts in this area deal too harshly or not harshly enough with criminals?” (Cite GSS?) However, in this year's survey, the interviewers are unable to add these volunteered responses due to the lack of interaction on the web and phone-based interviews. Therefore, the GSS adopted a new structure for these volunteered responses on the web mode by creating two different versions of forms with one containing the volunteered responses as an option and the other without. Thus, any changes in the public opinion seen in the 2021 GSS data could be due to either actual changes in public opinion or the result of this newly adopted methodology and should be closely monitored and considered in analysis on the survey.
+The GSS has further made changes to the survey response options as a result of the shift from in-person interviews to web and phone-based interviews. Originally the survey contains “volunteered responses” that are not displayed to the responders and is used by the interviewer. An example would be the option “about right” in response to the question “In general, do you think the courts in this area deal too harshly or not harshly enough with criminals?” ([@norc]). However, in this year's survey, the interviewers are unable to add these volunteered responses due to the lack of interaction on the web and phone-based interviews. Therefore, the GSS adopted a new structure for these volunteered responses on the web mode by creating two different versions of forms with one containing the volunteered responses as an option and the other without. Thus, any changes in the public opinion seen in the 2021 GSS data could be due to either actual changes in public opinion or the result of this newly adopted methodology and should be closely monitored and considered in analysis on the survey.
 
 Changes in the responses “Don’t Know” and “No Answer” have also been made in the 2021 GSS survey. Traditionally, these options would not be shown to the responders, and it is only recorded if the responder does not wish to answer. On the web mode, however, responders can only skip the question and the option of “No Answer” was removed. The option of “Don’t Know” was also removed from attitudinal questions, which are questions regarding the responder’s point of view,  and is always displayed in light-gray, which is different from standard responses, as an option for factual questions, which are questions regarding facts of the responder. Implementing these changes exposes the survey to more “No Answers” and “Don’t Know” responses, which could lead to loss of information. However, the GSS codebook has stated that a finding shows no significant increase in respondents choosing the options “No Answer” and “Don’t Know,” but they also encourage users to conduct further investigation seeing as this finding is still preliminary.
 
@@ -85,17 +82,16 @@ Other variables, such as sex, sexual orientation, and social class, the report r
 
 # Results
 
-Using a number of responses through the survey, we are able to observe the results visually using ggplot [CITE GG]; aiding in the understanding of the results. 
+Using a number of responses through the survey, we are able to observe the results visually using ggplot [@citeggplot2]; aiding in the understanding of the results. 
 
 ## Mental Health - Male Vs Female
 
 We first take a broad look at the two genders and observe the effect on their mental health. 
 
 
-```{r fig1, warning=FALSE, fig.cap="Mental Health - Male Vs Female", message = FALSE, echo=FALSE}
+```{r fig1, warning=FALSE, fig.cap="Mental Health - Male Vs Female", message = FALSE, echo=FALSE, fig.width=5, fig.height=5}
 labels <- c("Female", "Male")
 gss2021$sex_group <- cut(gss2021$sex, 2, labels = labels)
-
 #Recoding mental health
 # Changed good or better to 'Good'
 # Change poor and fair to 'Not Good'
@@ -107,7 +103,6 @@ gss2021 <- gss2021 %>%
     hlthmntl == 4 ~ 'Not Good',
     hlthmntl == 5 ~ 'Not Good',
   ))
-
 #=============================================================================
 # Percent Graph - Mental health - Male Vs Female
 gss2021 %>% filter(!is.na(`Mental Health`), !is.na(sex_group)) %>% ggplot(aes(x= `Mental Health`,  group=sex_group)) +
@@ -117,10 +112,9 @@ gss2021 %>% filter(!is.na(`Mental Health`), !is.na(sex_group)) %>% ggplot(aes(x=
   labs(y = "Percent", x = 'Mental Health', title = 'Mental Health: Male vs. Female') +
   facet_grid(~sex_group) +
   scale_y_continuous(labels = scales::percent) + theme(legend.position="none") + scale_fill_brewer(palette = "Spectral")
-
 ```
 
-(Figure 1) – Mental health (Male vs Female)) shows that 18.3% of the male respondents reported having ‘Not Good’ mental health and 81.7% reported ‘Good’ mental health compared to 13.8% of the female respondents reported having ‘Not Good’ mental health and 86.2% reported ‘Good’ mental health.
+(Figure \@ref(fig:fig1)) – Mental health (Male vs Female)) shows that 18.3% of the male respondents reported having ‘Not Good’ mental health and 81.7% reported ‘Good’ mental health compared to 13.8% of the female respondents reported having ‘Not Good’ mental health and 86.2% reported ‘Good’ mental health.
 
 An unequal percentage in both populations conveys an important message; that males are more in need of assistance with their mental health than females. 
 
@@ -130,8 +124,7 @@ We now observe the relationship between mental and physical health. An obvious i
 ## Mental Health – Physical Health
 
 
-```{r fig2, warning=FALSE, fig.cap="Mental Health – Physical Health", message = FALSE, echo=FALSE}
-
+```{r fig2, warning=FALSE, fig.cap="Mental Health – Physical Health", message = FALSE, echo=FALSE, fig.width=5, fig.height=5}
 #Recoding physical health
 gss2021 <- gss2021 %>%
   mutate(`Physical Health` = case_when(
@@ -141,9 +134,7 @@ gss2021 <- gss2021 %>%
     hlthphys == 4 ~ 'Not Good',
     hlthphys == 5 ~ 'Not Good',
   ))
-
 #=============================================================================
-
 # Percent Graph Physical health - Good Mental health vs Bad Mental Health
 gss2021 %>% filter(!is.na(`Mental Health`), !is.na(sex_group), !is.na(`Physical Health`)) %>%
   ggplot(aes(x= `Physical Health`,  group= `Mental Health`)) +
@@ -153,17 +144,15 @@ gss2021 %>% filter(!is.na(`Mental Health`), !is.na(sex_group), !is.na(`Physical 
   labs(y = "Percent", fill="Physical Health", x = 'Physical Health', title = "Mental Health vs. Physical Health" ) +
   facet_grid(~`Mental Health` , labeller = label_both) +
   scale_y_continuous(labels = scales::percent) + theme(legend.position="none") + scale_fill_brewer(palette = "Spectral")
-
 ```
 
 
-In (Figure 2), we can see that for people who reported ‘Not Good’ mental health, 56% reported having ‘Not Good’ physical health and 44% reported ‘Good’ physical health. While, for the people who reported ‘Good’ mental health, 13% reported ‘Not Good’ physical health, and 87% reported ‘Good’ physical health. 
+In (Figure \@ref(fig:fig2)), we can see that for people who reported ‘Not Good’ mental health, 56% reported having ‘Not Good’ physical health and 44% reported ‘Good’ physical health. While, for the people who reported ‘Good’ mental health, 13% reported ‘Not Good’ physical health, and 87% reported ‘Good’ physical health. 
 
 Here we observe slight inconsistencies with mental and physical health; proving to be quite different from one another. This graph implies people’s physical health (from their perspective) is a lot stronger than their mental health; a significant portion of the respondents who selected “Not Good” for their mental health also selected “Good” for their physical health (44%). We aim to deduce a pattern in this relationship by now comparing male and female responses to physical health, with a “Not Good” mental health response.
 
 
-```{r fig3, warning=FALSE, fig.cap="Physical Health Comparison of Male Vs. Female with Poor Mental Health", message = FALSE, echo=FALSE}
-
+```{r fig3, warning=FALSE, fig.cap="Physical Health Comparison of Male Vs. Female with Poor Mental Health", message = FALSE, echo=FALSE, fig.width=7, fig.height=6}
 # Percent Graph - Poor Mental health = Physical health within Sex_Group comparison
 gss2021 %>% filter(!is.na(`Mental Health`), !is.na(sex_group), !is.na(`Physical Health`), `Mental Health` =='Not Good') %>%
   ggplot(aes(x= `Physical Health`,  group=sex_group)) +
@@ -173,12 +162,11 @@ gss2021 %>% filter(!is.na(`Mental Health`), !is.na(sex_group), !is.na(`Physical 
   labs(y = "Percent", x="Physical Health", title = "Physical Health Comparison of Male Vs. Female with Poor Mental Health") +
   facet_grid(~sex_group) +
   scale_y_continuous(labels = scales::percent) + theme(legend.position="none") + scale_fill_brewer(palette = "Spectral")
-
 ```
 
-In Figure 3, we found that for participants whose mental health is ‘Not Good’, both Male and Female participants have similar distribution of physical health at 54.5% Female and 56.4% Male reporting ‘Not Good’ physical health and 45.5% of Female  43.6% of Male reporting ‘Good’ physical health while having poor mental health.
+In (Figure \@ref(fig:fig3)), we found that for participants whose mental health is ‘Not Good’, both Male and Female participants have similar distribution of physical health at 54.5% Female and 56.4% Male reporting ‘Not Good’ physical health and 45.5% of Female  43.6% of Male reporting ‘Good’ physical health while having poor mental health.
 
-This displays a pattern, that males and females have nearly identical percentages for their physical health; given poor mental health. [APPENDIX - COMPARE MALE FEMALE PHYS HEALTH WITH “GOOD” MENTAL HEALTH]
+This displays a pattern, that males and females have nearly identical percentages for their physical health; given poor mental health.
 
 Having understood the gender distribution, we now aim to understand the effects of mental health given the respondent's age.
 
@@ -187,8 +175,7 @@ Having understood the gender distribution, we now aim to understand the effects 
 ## Mental Health – Age Groups
 
 
-```{r fig4, warning=FALSE, fig.cap="Mental Health – Age Groups", message = FALSE, echo=FALSE}
-
+```{r fig4, warning=FALSE, fig.cap="Mental Health – Age Groups", message = FALSE, echo=FALSE, fig.width=7, fig.height=5}
 # Recording Age Group
 gss2021 <- gss2021 %>%
   mutate(`Age Group` = case_when(
@@ -198,9 +185,7 @@ gss2021 <- gss2021 %>%
     age >= 50 & age <=64~ '50-64',
     age >= 65 & age <=89~ '65-89'
   ))
-
 #=============================================================================
-
 # Percent Graph - Mental health (Age Group Analysis)
 gss2021 %>% filter(!is.na(`Mental Health`),!is.na(`Age Group`)) %>%
   ggplot(aes(x= `Mental Health`,  group=`Age Group`)) +
@@ -210,31 +195,26 @@ gss2021 %>% filter(!is.na(`Mental Health`),!is.na(`Age Group`)) %>%
   labs(y = "Percent", x="Mental Health", title = "Mental Health: Comparison of Different Age Groups") +
   facet_grid(~`Age Group`, labeller = label_both) +
   scale_y_continuous(labels = scales::percent) + theme(legend.position="none") + scale_fill_brewer(palette = "Spectral")
-
 ```
 
-In Figure 4, we can see that the Age Group of 18-29 has the highest ‘Not Good’ mental health at 34.5% followed by Ages 30-39 with 23.5%, 16.4% for Age Group 40-49, 13.4% for Age Group 50-64, and 9.1% for Age group 65-89. 
+In (Figure \@ref(fig:fig4)), we can see that the Age Group of 18-29 has the highest ‘Not Good’ mental health at 34.5% followed by Ages 30-39 with 23.5%, 16.4% for Age Group 40-49, 13.4% for Age Group 50-64, and 9.1% for Age group 65-89. 
 
-Here, we can observe a very interesting pattern, that quality of mental health is highly dependent on one’s age; with the youngest respondents reporting the poorest mental health.  [CITE]
+Here, we can observe a very interesting pattern, that quality of mental health is highly dependent on one’s age; with the youngest respondents reporting the poorest mental health.
 
 
 
 ## Mental Health - Sexual Orientation
 
 
-```{r fig5, warning=FALSE, fig.cap="Mental Health – Sexual Orientation", message = FALSE, echo=FALSE}
-
+```{r fig5, warning=FALSE, fig.cap="Mental Health – Sexual Orientation", message = FALSE, echo=FALSE, fig.width=5, fig.height=5}
 # Recoding Sexual orientation
-
 gss2021 <- gss2021 %>%
   mutate(sexual_orientation = case_when(
     sexornt == 1 ~ 'LGBTQ+',
     sexornt == 2 ~ 'LGBTQ+',
     sexornt == 3 ~ 'Heterosexual'
   ))
-
 #=============================================================================
-
 # Percent Graph - Mental health (Sexual Orientation Analysis)
 gss2021 %>% filter(!is.na(`Mental Health`), !is.na(sexual_orientation)) %>%
   ggplot(aes(x= `Mental Health`,  group=sexual_orientation)) +
@@ -244,17 +224,15 @@ gss2021 %>% filter(!is.na(`Mental Health`), !is.na(sexual_orientation)) %>%
   labs(y = "Percent", x="Mental Health", title = "Mental Health: Heterosexual vs. LGBTQ+") +
   facet_grid(~sexual_orientation) +
   scale_y_continuous(labels = scales::percent) + theme(legend.position="none") + scale_fill_brewer(palette = "Spectral")
-
 ```
 
-In Figure 5, we can see that 35% of LGBTQ+ reported their mental health as being Not Good (I.e, Poor or Fair) compared to 14% of Heterosexual. LGBTQ+ population experience a higher rate of poor mental health compared to the Heterosexual population. 
+In (Figure \@ref(fig:fig5)), we can see that 35% of LGBTQ+ reported their mental health as being Not Good (I.e, Poor or Fair) compared to 14% of Heterosexual. LGBTQ+ population experience a higher rate of poor mental health compared to the Heterosexual population. 
 
 
 ## Mental Health: Social Class
 
 
-```{r fig6, warning=FALSE, fig.cap="Mental Health – Social Class", message = FALSE, echo=FALSE}
-
+```{r fig6, warning=FALSE, fig.cap="Mental Health – Social Class", message = FALSE, echo=FALSE, fig.width=9, fig.height=5}
 gss2021 <- gss2021 %>%
   mutate(`Social Class` = case_when(
     class1 == 1 ~ "lower",
@@ -263,7 +241,6 @@ gss2021 <- gss2021 %>%
     class1 == 4 ~ "middle",
     class1 == 5 ~ "upper middle",
     class1 == 6 ~ "upper"))
-
 #=============================================================================
 # 'Mental Health: Comparison of Different Social Classes'
 gss2021 %>% filter(!is.na(`Mental Health`), !is.na(`Social Class`)) %>% ggplot(aes(x= `Mental Health`,  group= `Social Class`))+
@@ -273,17 +250,16 @@ gss2021 %>% filter(!is.na(`Mental Health`), !is.na(`Social Class`)) %>% ggplot(a
   labs(y = "Percent", fill="mntl_poor", title = 'Mental Health: Comparison of Different Social Classes') +
   facet_grid(~factor(`Social Class`, levels = c('lower', 'working','lower middle', 'middle', 'upper middle', 'upper'))) +
   scale_y_continuous(labels = scales::percent) + theme(legend.position="none") + scale_fill_brewer(palette = "Spectral")
-
 ```
 
-Figure 6 shows a bar graph of the mental health rating for each of the social classes. These social classes are self-identified by the responder to see where they see fit in the 6 different social classes.  44.2% of the lower social class, 21.3% of the working class, 20% of the lower middle class, 12.6% of the middle class, 7.5% of the upper-middle class, and 27.3% of the upper-class respondents responded with poor mental health. 
+(Figure \@ref(fig:fig6)) shows a bar graph of the mental health rating for each of the social classes. These social classes are self-identified by the responder to see where they see fit in the 6 different social classes.  44.2% of the lower social class, 21.3% of the working class, 20% of the lower middle class, 12.6% of the middle class, 7.5% of the upper-middle class, and 27.3% of the upper-class respondents responded with poor mental health. 
 
 
 
 ## Mental Health: Total Family Income
 
 
-```{r fig7, warning=FALSE, fig.cap="Mental Health – Total Family Income", message = FALSE, echo=FALSE}
+```{r fig7, warning=FALSE, fig.cap="Mental Health – Total Family Income", message = FALSE, echo=FALSE, fig.width=8, fig.height=5}
 # Recoding Family Income
 gss2021 <- gss2021 %>% 
   mutate(Income = case_when(
@@ -293,7 +269,6 @@ gss2021 <- gss2021 %>%
     income16 <= 19 ~ "$40,000 - $60,000",
     income16 <= 21 ~ "$60,000 - $90,000",
     income16 > 21 ~ "> $90,000"))
-
 #=============================================================================
 # 'Mental Health: Comparison by Total Family Income'
 gss2021 %>% filter(!is.na(`Mental Health`), !is.na(Income)) %>%  ggplot(aes(x= `Mental Health`,  group=Income))+
@@ -303,15 +278,14 @@ gss2021 %>% filter(!is.na(`Mental Health`), !is.na(Income)) %>%  ggplot(aes(x= `
   labs(y = "Percent" , title = 'Mental Health: Comparison by Total Family Income') +
   facet_grid(~factor(Income, levels = c('< $10,000', "$10,000 - $20,000", "$20,000 - $40,000", "$40,000 - $60,000", "$60,000 - $90,000", "> $90,000"))) +
   scale_y_continuous(labels = scales::percent) + theme(legend.position="none") + scale_fill_brewer(palette = "Spectral")
-
 ```
 
-Figure 7  shows a bar graph of the mental health comparison for different family income groups. 32.3% in the lowest income bracket (< \$10,000), 29.5%  in the lower-income (\$10,000 - \$20,000), 23.8% in lower middle income (\$20,000 - \$40,000), 18.3% in the middle income (\$40,000 - \$60,000), 13.4% in the upper middle income (\$60,000 - \$90,000), and 7.7% in the upper income (> \$90,000)  responded with ‘Not Good’ mental health. There is a clear trend in lower income family income having worse mental health compared to higher income groups. 
+(Figure \@ref(fig:fig7)) shows a bar graph of the mental health comparison for different family income groups. 32.3% in the lowest income bracket (< \$10,000), 29.5%  in the lower-income (\$10,000 - \$20,000), 23.8% in lower middle income (\$20,000 - \$40,000), 18.3% in the middle income (\$40,000 - \$60,000), 13.4% in the upper middle income (\$60,000 - \$90,000), and 7.7% in the upper income (> \$90,000)  responded with ‘Not Good’ mental health. There is a clear trend in lower income family income having worse mental health compared to higher income groups. 
 
 ## Mental Health: Age When First Child was Born
 
 
-```{r fig8, warning=FALSE, fig.cap="Mental Health – Age When First Child was Born", message = FALSE, echo=FALSE}
+```{r fig8, warning=FALSE, fig.cap="Mental Health – Age When First Child was Born", message = FALSE, echo=FALSE, fig.width=8, fig.height=5}
 # Recoding Age when first kid is born
 gss2021 <- gss2021 %>%
   mutate(`Kid Born` = case_when(
@@ -322,7 +296,6 @@ gss2021 <- gss2021 %>%
     agekdbrn >= 50 & agekdbrn <=64~ '50-64',
     agekdbrn >= 65 & agekdbrn <=89~ '65-89'
   ))
-
 #=============================================================================
 #  "Mental Health: Comparison by age when first child was born"
 gss2021 %>% filter(!is.na(`Mental Health`), !is.na(`Kid Born`))  %>% ggplot(aes(x= `Mental Health`,  group=`Kid Born`))+
@@ -332,67 +305,58 @@ gss2021 %>% filter(!is.na(`Mental Health`), !is.na(`Kid Born`))  %>% ggplot(aes(
   labs(y = "Percent", title = "Mental Health: Comparison by Age When First Child was Born") +
   facet_grid(~`Kid Born`) +
   scale_y_continuous(labels = scales::percent) + theme(legend.position="none") + scale_fill_brewer(palette = "Spectral")
-
 ```
 
-Figure 8  shows a bar graph of the respondent’s age when they had their firstborn child. 18.9% of age younger than 18, 14.4% of age between 18 and 29, 10.2% of age between 30-39, 7% of age between 40-49, and 0% of age 50 and above responded with poor mental health. 
+(Figure \@ref(fig:fig8)) shows a bar graph of the respondent’s age when they had their firstborn child. 18.9% of age younger than 18, 14.4% of age between 18 and 29, 10.2% of age between 30-39, 7% of age between 40-49, and 0% of age 50 and above responded with poor mental health. 
 
 
 
 
 # Discussion
 
-Due to the COVID-19 pandemic, there has been a rise in mental health ([cite]). With the rise in COVID-19 cases and social distancing being enforced by the governments, there is an increase in anxiety and depression due to isolation, job loss, and fear of infection [cite]. Looking into our data analysis we find some key insights that can help policymakers to take appropriate actions to reduce mental health suffering which can reduce long-term social and economical costs for society.
+Due to the COVID-19 pandemic, there has been a rise in mental health [@katekelland_2020]. With the rise in COVID-19 cases and social distancing being enforced by the governments, there is an increase in anxiety and depression due to isolation, job loss, and fear of infection [@world-health-organization]. Looking into our data analysis we find some key insights that can help policymakers to take appropriate actions to reduce mental health suffering which can reduce long-term social and economical costs for society.
 
 ## Male Vs Female
 
-Although the difference between ‘Not Good’ mental health between female and male participants isn’t huge (less than 5%) in Figure 1, our findings are a contradiction to studies such as (Cite) and (Cite) that suggests that females are more likely than males to report worse mental health, especially since physical distancing began due to the pandemic. 
+Although the difference between ‘Not Good’ mental health between female and male participants isn’t huge (less than 5%) in (Figure \@ref(fig:fig1)), our findings are a contradiction to studies such as [@Otten2021] and [@moyser_2020] that suggests that females are more likely than males to report worse mental health, especially since physical distancing began due to the pandemic. 
 
 
 ## Physical Health
 
-In (Figure 2), we see those survey participants who reported their mental health as Poor or Fair have significantly worse physical health compared to participants who have good mental health. This finding can also be seen in different studies such as (cite) and is mentioned (cite) & (cite) as physical health and mental health are inextricably related. Physical health can be managed by exercising, eating well, and avoiding smoking & drinking. 
+In (Figure \@ref(fig:fig2)), we see those survey participants who reported their mental health as Poor or Fair have significantly worse physical health compared to participants who have good mental health. This finding can also be seen in different studies such as [@Vaillant1979] and is mentioned [@mental-health-foundation_2022] & [@cmha-ontario] as physical health and mental health are inextricably related. Physical health can be managed by exercising, eating well, and avoiding smoking & drinking. 
 
 
 ## Age Groups
 
-The trend of Figure 4 shows that as the Age Group increases, the reporting of poor mental health decreases. This finding is also supported by (cite) which also confirms that younger age groups have increased reported poor mental health. Poor mental health is also strongly related to other health and development concerns in young people, notably lower educational achievements, substance abuse, violence, and poor reproductive and sexual health(cite). 
+The trend of (Figure \@ref(fig:fig4)) shows that as the Age Group increases, the reporting of poor mental health decreases. This finding is also supported by [@national-institute-of-mental-health] which also confirms that younger age groups have increased reported poor mental health. Poor mental health is also strongly related to other health and development concerns in young people, notably lower educational achievements, substance abuse, violence, and poor reproductive and sexual health [@Patel2007]. 
 
 
 ## Sexual Orientation
 
-LGBTQ+ individuals have poor mental health compared to heterosexual individuals (cite). This is due to many factors such as lack of social support which has an association with higher levels of depression, anxiety, and low self-esteem (cite)
+LGBTQ+ individuals have poor mental health compared to heterosexual individuals [@McDonald2018]. This is due to many factors such as lack of social support which has an association with higher levels of depression, anxiety, and low self-esteem [@McDonald2018].
 
 
 ## Income and Social Class
 
-People with lower income will most likely identify themselves as a lower social class as these two factors are closely related (cite). And from Figure 6 and Figure 7, it is observed that people with lower income and lower social class have a higher percentage of people reporting poor mental health. This discovery aligned with an article by the Canadian Mental Health Association (CMHA) on Poverty and Mental Illness (cite). Furthermore, With the added mental stress on lower classes, treatments also vary from class, with the higher classes having access to the highest quality psychiatrist, with the lower classes always receiving the lowest quality treatment (cite). 
+People with lower income will most likely identify themselves as a lower social class as these two factors are closely related [@parker_2020]. And from (Figure \@ref(fig:fig6)) and (Figure \@ref(fig:fig7)), it is observed that people with lower income and lower social class have a higher percentage of people reporting poor mental health. This discovery aligned with an article by the Canadian Mental Health Association (CMHA) on Poverty and Mental Illness [@cmha-ontario-2]. Furthermore, With the added mental stress on lower classes, treatments also vary from class, with the higher classes having access to the highest quality psychiatrist, with the lower classes always receiving the lowest quality treatment [@SocialClass-MentalIllness]. 
 
-However, there is a drastic increase in poor mental health percentage for the upper class, which is not seen in the income graph. After investigation, the participants who reported poor mental health and an upper social class consisted of roughly 45% being at the age of 50 or older. According to the World Health Organization(WHO), it is estimated that over 20% of adults over the age of 60 suffer from some mental or neurological disorders (cite). Although this may sound contradicting to the Age trend that was mentioned, there are only 10 people who are age 50 and above and identifies as upper class, thus this is a relatively small portion of the age group. Older respondents may also respond with a lower income and social class due to retirement. 
+However, there is a drastic increase in poor mental health percentage for the upper class, which is not seen in the income graph. After investigation, the participants who reported poor mental health and an upper social class consisted of roughly 45% being at the age of 50 or older. According to the World Health Organization(WHO), it is estimated that over 20% of adults over the age of 60 suffer from some mental or neurological disorders [@world-health-organization-2]. Although this may sound contradicting to the Age trend that was mentioned, there are only 10 people who are age 50 and above and identifies as upper class, thus this is a relatively small portion of the age group. Older respondents may also respond with a lower income and social class due to retirement. 
 
-Furthermore, while there are 9.2% of the participants responded with a salary over $170,000, only 0.5% identified as upper class and 5.6% identified as upper-middle-class, thus respondents with salaries that fit in the upper class may be reporting to a lower social class or skipping the question or responding with “Don’t Know” as described in the Quality of Data Section (\@ref(Qualities)). These factors may explain the increase in poor mental health in participants in the upper social class with poor mental health.
+Furthermore, while there are 9.2% of the participants responded with a salary over $170,000, only 0.5% identified as upper class and 5.6% identified as upper-middle-class, thus respondents with salaries that fit in the upper class may be reporting to a lower social class or skipping the question or responding with “Don’t Know” as described in the Quality of Data Section [Qualities][Qualities]. These factors may explain the increase in poor mental health in participants in the upper social class with poor mental health.
 
 
 ## Firstborn Child Age
 
-Figure 8 shows that the younger the respondents are when they had their firstborn child, the more likely they will experience poor mental health as the percentage steadily decreases as age increases. Several reasons may explain this phenomenon. To raise a child, certain financial needs will arise such as food costs, equipment, and medical attention that are specific to babies (cite), and more time would be needed to be taking care of the child (cite). And as younger workers are more likely to have less experience in the work field, most young workers take on entry-level occupations which often have lower compensation (cite). Thus, the respondent may experience more financial stress as well as work stress due to the additional financial costs and time costs. 
+(Figure \@ref(fig:fig8)) shows that the younger the respondents are when they had their firstborn child, the more likely they will experience poor mental health as the percentage steadily decreases as age increases. Several reasons may explain this phenomenon. To raise a child, certain financial needs will arise such as food costs, equipment, and medical attention that are specific to babies [@lino_2020], and more time would be needed to be taking care of the child [@miller_2018]. And as younger workers are more likely to have less experience in the work field, most young workers take on entry-level occupations which often have lower compensation [@hill_2020]. Thus, the respondent may experience more financial stress as well as work stress due to the additional financial costs and time costs. 
 
-And from the income graph in Figure 7 people with lower income are also more likely to experience poor mental health, so with these factors altogether, it is expected that the percentage of poor mental health is higher with people having their firstborn at a younger age. However, only 4 respondents, which makes up nearly 0% of the respondents, had a response of ages 50 and above, thus this age group may not be the best representation of the mental health for people who had their firstborn child at ages 50 and above.
+And from the income graph in (Figure \@ref(fig:fig7)) people with lower income are also more likely to experience poor mental health, so with these factors altogether, it is expected that the percentage of poor mental health is higher with people having their firstborn at a younger age. However, only 4 respondents, which makes up nearly 0% of the respondents, had a response of ages 50 and above, thus this age group may not be the best representation of the mental health for people who had their firstborn child at ages 50 and above.
 
-
-## First discussion point
-
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
-
-## Second discussion point
-
-## Third discussion point
 
 ## Weaknesses and next steps
 
 Covid-19 undoubtedly had a significant impact on the 2021 GSS Survey. With the cancellation of in-person interviews and the shift onto web and phone mode, this year’s GSS interviewers were unable to interact with the respondents; skipping questions, and volunteer responses were allowed. This may introduce within the responses without any unbiased medium, such as the interviewer to assess. Furthermore, as mentioned in the #Bias Section, the randomness of the survey has shifted and the response rate drastically decreased due to the impact of the pandemic. Although weighting has been introduced in an attempt to alleviate the impacts, these are still factors to consider. 
 
-Finally, we must consider how the mental health rating is provided by the respondent. In this survey, the response is based on their \textit{self}-diagnosis, and not a medical professional. It is very common today for people to \textit{believe} they have poor mental health ([cite]), which might lead to a bias in the results. This should be noted, with future surveys potentially requesting for a doctor’s diagnosis; to more accurately represent the mental health situation in the United States.
+Finally, we must consider how the mental health rating is provided by the respondent. In this survey, the response is based on their \textit{self}-diagnosis, and not a medical professional. It is very common today for people to \textit{believe} they have poor mental health [@upshaw_2020], which might lead to a bias in the results. This should be noted, with future surveys potentially requesting for a doctor’s diagnosis; to more accurately represent the mental health situation in the United States.
 
 
 \newpage
@@ -404,33 +368,29 @@ Finally, we must consider how the mental health rating is provided by the respon
 
 # Supplementary survey
 
-Our supplementary survey is available here: LINK
+Our supplementary survey is available here: [https://tinyurl.com/supplemental-MentalHealth](https://tinyurl.com/supplemental-MentalHealth)
 
-## Preamble
+Additionally, you can scan this QR code:
+![QR Code for the survey](C:/Users/Isfan/Desktop/Supplemental Survey Screen Shots/QR CODE.png){width=20% height=20%}\
 
-The purpose of this survey is to further investigate gender. We are interested in more detailed gender data than is provided by the main US GSS and will use this to guide the development of submissions to change future iterations of the GSS.
+The following images show the screenshots of the online survey form:
 
-By proceeding with the survey, you understand that we will use your responses to better understand gender responses in the GSS. The survey is voluntary, and if you decide to participate you can skip questions and withdraw at any time.
 
-## Questions
+```{r echo=FALSE, out.width='100%'}
+knitr::include_graphics('C:/Users/Isfan/Desktop/Supplemental Survey Screen Shots/001.png')
+```
 
-1. What is your age?
-    - 18-29
-    - ... ADD all the others
-2. What is your gender?
-    - Female
-    - Male
-    - Transgender
-    - Non-binary
-    - Genderqueer
-    - Two-spirit
-    - Other
-ADD some other questions
+```{r echo=FALSE, out.width='100%'}
+knitr::include_graphics('C:/Users/Isfan/Desktop/Supplemental Survey Screen Shots/002.png')
+```
 
-## End page
+```{r echo=FALSE, out.width='100%'}
+knitr::include_graphics('C:/Users/Isfan/Desktop/Supplemental Survey Screen Shots/003.png')
+```
 
-Thank you very much for partiicpating in our survey. If you have any questions, you can email rohan.alexander@utoronto.ca
-
+```{r echo=FALSE, out.width='100%'}
+knitr::include_graphics('C:/Users/Isfan/Desktop/Supplemental Survey Screen Shots/004.png')
+```
 
 
 
@@ -440,5 +400,3 @@ Thank you very much for partiicpating in our survey. If you have any questions, 
 
 
 # References
-
-
