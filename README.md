@@ -1,6 +1,12 @@
 # Mental Health of U.S. Citizens During the COVID-19 Pandemic
 
-For this report, we used the US GSS 2021 data to better understand factors that may affect American's mental health.
+- Author: Ray Wen, Isfandyar Virani, Rayhan Walia
+- Date: March 20, 2022
+- E-mail: ray.wen@mail.utoronto.ca, isfandyar.virani@mail.utoronto.ca, rayhan.walia@mail.utoronto.ca
+
+## Overview of the paper
+
+This repository explores the US GSS 2021 data to better understand factors that may affect American's mental health.
 
 ## Obtaining data
 
@@ -24,6 +30,20 @@ This script uses the file that is located in the path "inputs/data/2021_stata/gs
 
 There is a RMarkDown document located in "outputs/paper/paper.Rmd". This file is used to produce the report "Mental Health of U.S. Citizens During the COVID-19 Pandemic". It contains the R code to produce the graphs and the report format code. The reference used are also located in "outputs/paper/references.bib".
 
+
+## File Structure
+
+1. Inputs
+- In this folder, you will find GSS 2021 raw data, cleaned datasets, and supplemental survey screenshots (within supplemental_survey folder).
+
+2. Outputs
+- In this folder you will find a reference file, RMarkdown file, and a pdf document of the paper.
+
+3. Scripts
+- This folder contains R-Scripts to retrieve, clean, and do analysis (visulization) with the dataset.
+
+4. Licence
+- Typical MIT licence for re usability
 
 
 
