@@ -377,19 +377,19 @@ The following images show the screenshots of the online survey form:
 
 
 ```{r echo=FALSE, out.width='100%'}
-knitr::include_graphics('C:/Users/Isfan/Desktop/Supplemental Survey Screen Shots/001.png')
+knitr::include_graphics('("../../outputs/paper/supplemental survey/001.png')
 ```
 
 ```{r echo=FALSE, out.width='100%'}
-knitr::include_graphics('C:/Users/Isfan/Desktop/Supplemental Survey Screen Shots/002.png')
+knitr::include_graphics('("../../outputs/paper/supplemental survey/002.png')
 ```
 
 ```{r echo=FALSE, out.width='100%'}
-knitr::include_graphics('C:/Users/Isfan/Desktop/Supplemental Survey Screen Shots/003.png')
+knitr::include_graphics('("../../outputs/paper/supplemental survey/003.png')
 ```
 
 ```{r echo=FALSE, out.width='100%'}
-knitr::include_graphics('C:/Users/Isfan/Desktop/Supplemental Survey Screen Shots/004.png')
+knitr::include_graphics('("../../outputs/paper/supplemental survey/004.png')
 ```
 
 
