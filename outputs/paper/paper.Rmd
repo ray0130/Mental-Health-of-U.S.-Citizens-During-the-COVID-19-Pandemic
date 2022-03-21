@@ -42,9 +42,9 @@ In each round, the GSS contains a set of repeating modules and a section of topi
 ## Sample
 
 
-In this survey, the sample of focus were adults, 18 years of age or older, residing in a noninstitutional (privately owned) home in the United States. Due to the recent pandemic, and the implications on in-person activities; the materials were mailed to people showing them a web link as an invitation. The addresses were provided from the NORC National Sampling Frame as well as the United States Postal Service (USPS) Computerized Delivery Seuquence File (CDS). A phone option was also provided, but respondents were pushed to the web survey first. With a response rate of 17.4%, a total of 4,032 surveys were completed; from December 1, 2020 to May 3, 2021. 88.3% of those respondents completed the survey via the web, and 11.7% completed it via the phone.
+In this survey, the sample of focus were adults, 18 years of age or older, residing in a noninstitutional (privately owned) home in the United States. Due to the recent pandemic, and the implications on in-person activities; the materials were mailed to people showing them a web link as an invitation. The addresses were provided from the NORC National Sampling Frame as well as the United States Postal Service (USPS) Computerized Delivery Sequence File (CDS). A phone option was also provided, but respondents were pushed to the web survey first. With a response rate of 17.4%, a total of 4,032 surveys were completed; from December 1, 2020, to May 3, 2021. 88.3% of those respondents completed the survey via the web, and 11.7% completed it via the phone.
 
-To choose the respondent out of the houses the mails were being sent, the ‘last birthday method’ was used; selecting the adult with the most recent birthday to when the mail was sent out. Prior to the pandemic, this process was far more rigorous, with an interviewer physically with the respondent, assisting them along the way. The selection process was also more rigorous, with the interviewer making the selection after all adults had filled in an introductory form. The lack of an interviewer made the process \textit{easier} (as in, less fieldwork), but less effective (due to lack of incentive by an interviewer, fewer individuals responded). This was a tradeoff in the sampling approach that must be noted, in comparison to previous years (prior to the pandemic).
+To choose the respondent out of the houses the mail were being sent, the ‘last birthday method’ was used; selecting the adult with the most recent birthday to when the mail was sent out. Prior to the pandemic, this process was far more rigorous, with an interviewer physically with the respondent, assisting them along the way. The selection process was also more rigorous, with the interviewer making the selection after all adults had filled in an introductory form. The lack of an interviewer made the process \textit{easier} (as in, less fieldwork), but less effective (due to lack of incentive by an interviewer, fewer individuals responded). This was a tradeoff in the sampling approach that must be noted, in comparison to previous years (before the pandemic).
 
 Weights had to be carefully placed to account for various factors; such as population totals, the density of surveyed addresses nearby as well as non-response. Note, the difficulty of the weighting system is that it must account for new data, as well as be similar to the years prior as to not skew the results. 
 
@@ -57,7 +57,7 @@ Changes in the responses “Don’t Know” and “No Answer” have also been m
 
 ## Bias
 
-There are various sources of bias in this survey, most of which stem from the Covid-19 pandemic. Firstly, the method of data collection itself. Prior to the pandemic, the survey would be conducted in person; and a random member of the household would be chosen. This had a high response rate of well above 50%. The pandemic forced these surveys to be web-based, drastically decreasing the response rate to 17%. This causes a far higher non-response bias than previous GSS surveys. To account for this, a weighting system was applied to the data to set the samples as close to the US Census Bureau estimates as possible.
+There are various sources of bias in this survey, most of which stem from the Covid-19 pandemic. Firstly, the method of data collection itself. Before the pandemic, the survey would be conducted in person; and a random member of the household would be chosen. This had a high response rate of well above 50%. The pandemic forced these surveys to be web-based, drastically decreasing the response rate to 17%. This causes a far higher non-response bias than previous GSS surveys. To account for this, a weighting system was applied to the data to set the samples as close to the US Census Bureau estimates as possible.
 
 Due to the collection of the survey completely shifting from in-person to web-based, measurement bias was undeniably present. The primary factor of difference is the lack of interviewer assistance (explaining the question further, etc.). The questions were also slightly altered to account for the shift in the interface, which added to errors in the measurement due to variability from past surveys.
 
@@ -74,15 +74,15 @@ This survey contains a total of 565 variables and 4032 observations. However, du
 
 This report focuses on a subset of variables that will be used to analyze the trends and correlations of mental health with each different social aspect. Furthermore, many of these variables have been pre-processed and transformed into commonly seen categories to generalize the results. 
 
-Both mental health variables and physical health variables are separated into two categories, “Good” and “Not Good” with a cut-off point at the center of the range of original values. Age is categorized into groups according to the GSS codebook, separated for every 10 years of age with the exception of ages 18 to 29 and 65 above. The participants’ age when they had their firstborn child is also categorized in the same fashion as age groups. Finally, each participants income class is categorized for each \$20,000 with the exception of under \$10,000, between \$10,000 and \$20,000, and above $90,000. These categorizations will facilitate the results by yielding a clearer distinction between each group and provide a generalization of the results.
+Both mental health variables and physical health variables are separated into two categories, “Good” and “Not Good” with a cut-off point at the center of the range of original values. Age is categorized into groups according to the GSS codebook, separated for every 10 years of age except for ages 18 to 29 and 65 above. The participants’ age when they had their firstborn child is also categorized in the same fashion as age groups. Finally, each participants income class is categorized for each \$20,000 with the exception of under \$10,000, between \$10,000 and \$20,000, and above $90,000. These categorizations will facilitate the results by yielding a clearer distinction between each group and provide a generalization of the results.
 
-Other variables, such as sex, sexual orientation, and social class, the report retains its original labels as it already consists of a set of well-distinguished categories for analysis. For the participants' sex, it is separated as “Male” and “Female” with a small percentage (under 2%) of “No answer” and “Not Applicable.” Participants’ sexual orientation is categorized as “Gay, Lesbian, or Homosexual”, “Bisexual”, and “Heterosexual or Straight”. Finally, social classes are categorized as “Lower”, “Working”, “Lower Middle”,  “Middle”, “Upper Middle”,  and “Upper” class, and these classes are identified by the participants themselves with their own assessments.
+Other variables, such as sex, sexual orientation, and social class, the report retains its original labels as it already consists of a set of well-distinguished categories for analysis. For the participants' sex, it is separated as “Male” and “Female” with a small percentage (under 2%) of “No answer” and “Not Applicable.” Participants’ sexual orientation is categorized as “Gay, Lesbian, or Homosexual”, “Bisexual”, and “Heterosexual or Straight”. Finally, social classes are categorized as “Lower”, “Working”, “Lower Middle”,  “Middle”, “Upper Middle”,  and “Upper” class, and these classes are identified by the participants themselves with their assessments.
 
 
 
 # Results
 
-Using a number of responses through the survey, we are able to observe the results visually using ggplot [@citeggplot2]; aiding in the understanding of the results. 
+Using several responses through the survey, we are able to observe the results visually using ggplot [@citeggplot2]; aiding in the understanding of the results. 
 
 ## Mental Health - Male Vs Female
 
@@ -147,7 +147,7 @@ gss2021 %>% filter(!is.na(`Mental Health`), !is.na(sex_group), !is.na(`Physical 
 ```
 
 
-In (Figure \@ref(fig:fig2)), we can see that for people who reported ‘Not Good’ mental health, 56% reported having ‘Not Good’ physical health and 44% reported ‘Good’ physical health. While, for the people who reported ‘Good’ mental health, 13% reported ‘Not Good’ physical health, and 87% reported ‘Good’ physical health. 
+In (Figure \@ref(fig:fig2)), we can see that for people who reported ‘Not Good’ mental health, 56% reported having ‘Not Good’ physical health, and 44% reported ‘Good’ physical health. While, for the people who reported ‘Good’ mental health, 13% reported ‘Not Good’ physical health, and 87% reported ‘Good’ physical health. 
 
 Here we observe slight inconsistencies with mental and physical health; proving to be quite different from one another. This graph implies people’s physical health (from their perspective) is a lot stronger than their mental health; a significant portion of the respondents who selected “Not Good” for their mental health also selected “Good” for their physical health (44%). We aim to deduce a pattern in this relationship by now comparing male and female responses to physical health, with a “Not Good” mental health response.
 
@@ -164,10 +164,7 @@ gss2021 %>% filter(!is.na(`Mental Health`), !is.na(sex_group), !is.na(`Physical 
   scale_y_continuous(labels = scales::percent) + theme(legend.position="none") + scale_fill_brewer(palette = "Spectral")
 ```
 
-In (Figure \@ref(fig:fig3)), we found that for participants whose mental health is ‘Not Good’, both Male and Female participants have similar distribution of physical health at 54.5% Female and 56.4% Male reporting ‘Not Good’ physical health and 45.5% of Female  43.6% of Male reporting ‘Good’ physical health while having poor mental health.
-
-This displays a pattern, that males and females have nearly identical percentages for their physical health; given poor mental health.
-
+In (Figure \@ref(fig:fig3)), we found that for participants whose mental health is ‘Not Good’, both Male and Female participants have a similar distribution of physical health at 54.5% Female and 56.4% Male reporting ‘Not Good’ physical health and 45.5% of Female  43.6% of Male reporting ‘Good’ physical health while having poor mental health. This displays a pattern, that males and females have nearly identical percentages for their physical health; given poor mental health.
 Having understood the gender distribution, we now aim to understand the effects of mental health given the respondent's age.
 
 
