@@ -177,7 +177,7 @@ Using several responses through the survey, we are able to observe the results v
 We first take a broad look at the two genders and observe the effect on their mental health. 
 
 
-```{r fig1, warning=FALSE, fig.cap="Mental Health - Male Vs Female", message = FALSE, echo=FALSE, fig.width=5, fig.height=5}
+```{r fig1, warning=FALSE, fig.cap="Mental Health - Male Vs Female", message = FALSE, echo=FALSE, fig.width=5, fig.height=5, out.width='50%'}
 # Percent Graph - Mental health - Male Vs Female
 gss2021 %>% filter(!is.na(`Mental Health`), !is.na(sex_group)) %>% ggplot(aes(x= `Mental Health`,  group=sex_group)) +
   geom_bar(aes(y = ..prop.., fill = factor(..x..)), stat="count") +
@@ -198,7 +198,7 @@ We now observe the relationship between mental and physical health. An obvious i
 ## Mental Health – Physical Health
 
 
-```{r fig2, warning=FALSE, fig.cap="Mental Health – Physical Health", message = FALSE, echo=FALSE, fig.width=5, fig.height=5}
+```{r fig2, warning=FALSE, fig.cap="Mental Health – Physical Health", message = FALSE, echo=FALSE, fig.width=5, fig.height=5, out.width='50%'}
 # Percent Graph Physical health - Good Mental health vs Bad Mental Health
 gss2021 %>% filter(!is.na(`Mental Health`), !is.na(sex_group), !is.na(`Physical Health`)) %>%
   ggplot(aes(x= `Physical Health`,  group= `Mental Health`)) +
@@ -216,7 +216,7 @@ In (Figure \@ref(fig:fig2)), we can see that for people who reported ‘Not Good
 Here we observe slight inconsistencies with mental and physical health; proving to be quite different from one another. This graph implies people’s physical health (from their perspective) is a lot stronger than their mental health; a significant portion of the respondents who selected “Not Good” for their mental health also selected “Good” for their physical health (44%). We aim to deduce a pattern in this relationship by now comparing male and female responses to physical health, with a “Not Good” mental health response.
 
 
-```{r fig3, warning=FALSE, fig.cap="Physical Health Comparison of Male Vs. Female with Poor Mental Health", message = FALSE, echo=FALSE, fig.width=7, fig.height=6}
+```{r fig3, warning=FALSE, fig.cap="Physical Health Comparison of Male Vs. Female with Poor Mental Health", message = FALSE, echo=FALSE, fig.width=7, fig.height=6, out.width='50%'}
 # Percent Graph - Poor Mental health = Physical health within Sex_Group comparison
 gss2021 %>% filter(!is.na(`Mental Health`), !is.na(sex_group), !is.na(`Physical Health`), `Mental Health` =='Not Good') %>%
   ggplot(aes(x= `Physical Health`,  group=sex_group)) +
@@ -236,7 +236,7 @@ Having understood the gender distribution, we now aim to understand the effects 
 ## Mental Health – Age Groups
 
 
-```{r fig4, warning=FALSE, fig.cap="Mental Health – Age Groups", message = FALSE, echo=FALSE, fig.width=7, fig.height=5}
+```{r fig4, warning=FALSE, fig.cap="Mental Health – Age Groups", message = FALSE, echo=FALSE, fig.width=7, fig.height=5, out.width='50%'}
 # Percent Graph - Mental health (Age Group Analysis)
 gss2021 %>% filter(!is.na(`Mental Health`),!is.na(`Age Group`)) %>%
   ggplot(aes(x= `Mental Health`,  group=`Age Group`)) +
@@ -257,7 +257,7 @@ Here, we can observe a very interesting pattern, that quality of mental health i
 ## Mental Health - Sexual Orientation
 
 
-```{r fig5, warning=FALSE, fig.cap="Mental Health – Sexual Orientation", message = FALSE, echo=FALSE, fig.width=5, fig.height=5}
+```{r fig5, warning=FALSE, fig.cap="Mental Health – Sexual Orientation", message = FALSE, echo=FALSE, fig.width=5, fig.height=5, out.width='50%'}
 # Percent Graph - Mental health (Sexual Orientation Analysis)
 gss2021 %>% filter(!is.na(`Mental Health`), !is.na(sexual_orientation)) %>%
   ggplot(aes(x= `Mental Health`,  group=sexual_orientation)) +
@@ -275,7 +275,7 @@ In (Figure \@ref(fig:fig5)), we can see that 35% of LGBTQ+ reported their mental
 ## Mental Health: Social Class
 
 
-```{r fig6, warning=FALSE, fig.cap="Mental Health – Social Class", message = FALSE, echo=FALSE, fig.width=9, fig.height=5}
+```{r fig6, warning=FALSE, fig.cap="Mental Health – Social Class", message = FALSE, echo=FALSE, fig.width=9, fig.height=5, out.width='50%'}
 # 'Mental Health: Comparison of Different Social Classes'
 gss2021 %>% filter(!is.na(`Mental Health`), !is.na(`Social Class`)) %>% ggplot(aes(x= `Mental Health`,  group= `Social Class`))+
   geom_bar(aes(y = ..prop.., fill = factor(..x..)), stat="count") +
@@ -293,7 +293,7 @@ gss2021 %>% filter(!is.na(`Mental Health`), !is.na(`Social Class`)) %>% ggplot(a
 ## Mental Health: Total Family Income
 
 
-```{r fig7, warning=FALSE, fig.cap="Mental Health – Total Family Income", message = FALSE, echo=FALSE, fig.width=8, fig.height=5}
+```{r fig7, warning=FALSE, fig.cap="Mental Health – Total Family Income", message = FALSE, echo=FALSE, fig.width=8, fig.height=5, out.width='50%'}
 # 'Mental Health: Comparison by Total Family Income'
 gss2021 %>% filter(!is.na(`Mental Health`), !is.na(Income)) %>%  ggplot(aes(x= `Mental Health`,  group=Income))+
   geom_bar(aes(y = ..prop.., fill = factor(..x..)), stat="count") +
@@ -309,7 +309,7 @@ gss2021 %>% filter(!is.na(`Mental Health`), !is.na(Income)) %>%  ggplot(aes(x= `
 ## Mental Health: Age When First Child was Born
 
 
-```{r fig8, warning=FALSE, fig.cap="Mental Health – Age When First Child was Born", message = FALSE, echo=FALSE, fig.width=8, fig.height=5}
+```{r fig8, warning=FALSE, fig.cap="Mental Health – Age When First Child was Born", message = FALSE, echo=FALSE, fig.width=8, fig.height=5, out.width='50%'}
 #  "Mental Health: Comparison by age when first child was born"
 gss2021 %>% filter(!is.na(`Mental Health`), !is.na(`Kid Born`))  %>% ggplot(aes(x= `Mental Health`,  group=`Kid Born`))+
   geom_bar(aes(y = ..prop.., fill = factor(..x..)), stat="count") +
