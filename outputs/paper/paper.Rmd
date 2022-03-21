@@ -154,8 +154,6 @@ Both mental health variables and physical health variables are separated into tw
 
 Other variables, such as sex, sexual orientation, and social class, the report retains its original labels as it already consists of a set of well-distinguished categories for analysis. For the participants' sex, it is separated as “Male” and “Female” with a small percentage (under 2%) of “No answer” and “Not Applicable.” Participants’ sexual orientation is categorized as “Gay, Lesbian, or Homosexual”, “Bisexual”, and “Heterosexual or Straight”. Finally, social classes are categorized as “Lower”, “Working”, “Lower Middle”,  “Middle”, “Upper Middle”,  and “Upper” class, and these classes are identified by the participants themselves with their assessments.
 
-Below contains a summary of the variables of interest using vtable[@vtable] and kableExtra[@kableExtra]:
-
 ```{r tab1, warning=FALSE, fig.cap="Summary of US GSS Variables", message = FALSE, echo=FALSE, fig.width=5, fig.height=5}
 gss2021 <- gss2021 %>% 
   mutate(`Mental Health Score` = hlthmntl) %>%
@@ -165,7 +163,9 @@ USData <- gss2021 %>% select(`Mental Health Score`, `Physical Health Score`, age
 sumtable(USData,  title = 'US GSS Summary Statistics', out = 'kable')
 ```
 
-From Table \@ref(tab:tab1), we observe the average mental health of respondents as well as their physical health as below the average of the possible responses (3 being the statistically average response), with a slightly higher average physical health. Their standard deviation, or measure of variation; is nearly identical. We also observe the summary statistics of the age the respondents were when they had their first child. 
+Table \@ref(tab:tab1) contains a summary of the variables of interest using vtable[@vtable] and kableExtra[@kableExtra].
+
+From this table, we observe the average mental health of respondents as well as their physical health as below the average of the possible responses (3 being the statistically average response), with a slightly higher average physical health. Their standard deviation, or measure of variation; is nearly identical. We also observe the summary statistics of the age the respondents were when they had their first child. 
 
 # Results
 
@@ -366,7 +366,7 @@ And from the income graph in (Figure \@ref(fig:fig7)) people with lower income a
 
 ## Weaknesses and next steps
 
-Covid-19 undoubtedly had a significant impact on the 2021 GSS Survey. With the cancellation of in-person interviews and the shift onto web and phone mode, this year’s GSS interviewers were unable to interact with the respondents; skipping questions, and volunteer responses were allowed. This may introduce within the responses without any unbiased medium, such as the interviewer to assess. Furthermore, as mentioned in the #Bias Section, the randomness of the survey has shifted and the response rate drastically decreased due to the impact of the pandemic. Although weighting has been introduced in an attempt to alleviate the impacts, these are still factors to consider. 
+Covid-19 undoubtedly had a significant impact on the 2021 GSS Survey. With the cancellation of in-person interviews and the shift onto web and phone mode, this year’s GSS interviewers were unable to interact with the respondents; skipping questions, and volunteer responses were allowed. This may introduce within the responses without any unbiased medium, such as the interviewer to assess. Furthermore, as mentioned in the [Bias][Bias] Section, the randomness of the survey has shifted and the response rate drastically decreased due to the impact of the pandemic. Although weighting has been introduced in an attempt to alleviate the impacts, these are still factors to consider. 
 
 Finally, we must consider how the mental health rating is provided by the respondent. In this survey, the response is based on their \textit{self}-diagnosis, and not a medical professional. It is very common today for people to \textit{believe} they have poor mental health [@upshaw_2020], which might lead to a bias in the results. This should be noted, with future surveys potentially requesting for a doctor’s diagnosis; to more accurately represent the mental health situation in the United States.
 
