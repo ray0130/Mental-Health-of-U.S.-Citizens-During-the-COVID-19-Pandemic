@@ -3,7 +3,7 @@ title: "Mental Health of U.S. Citizens During the COVID-19 Pandemic"
 subtitle: "Analysis of US General Social Survey of 2021"
 author: 
   - Ray Wen, Isfandyar Virani, Rayhan Walia
-thanks: "Code and data are available at: https://github.com/ray0130/usa_gss."
+thanks: "Code and data are available at: https://github.com/ray0130/Mental-Health-of-U.S.-Citizens-During-the-COVID-19-Pandemic"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 abstract: "In this paper, the 2021 US General Social Survey was analyzed to examine how mental health affects different parts of the population during the COVID-19 pandemic. The analysis was able to determine that Male participants, participants with poor physical health, Younger Age Groups between 18 and 29, LGBTQ+, participants with lower income and low social class, and participants that had their firstborn child at a younger age have poor mental health compared to their counterparts. This is an important result as it can help policymakers to take appropriate actions to reduce mental health suffering which can in-turn reduce long-term social and economical costs for society."
 output:
