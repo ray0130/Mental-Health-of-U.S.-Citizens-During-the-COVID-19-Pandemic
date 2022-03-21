@@ -1,7 +1,7 @@
 #### Preamble ####
 # Purpose: Prepare the 2021 GSS data
 # Author: Ray Wen
-# Data: 17 March 2022
+# Data: 20 March 2022
 # Contact: ray.wen@mail.utoronto.ca
 # License: MIT
 
