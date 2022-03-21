@@ -126,7 +126,7 @@ Weights had to be carefully placed to account for various factors; such as popul
 
 ## Qualities 
 
-The GSS has further made changes to the survey response options as a result of the shift from in-person interviews to web and phone-based interviews. Originally the survey contains “volunteered responses” that are not displayed to the responders and is used by the interviewer. An example would be the option “about right” in response to the question “In general, do you think the courts in this area deal too harshly or not harshly enough with criminals?” ([@norc]). However, in this year's survey, the interviewers are unable to add these volunteered responses due to the lack of interaction on the web and phone-based interviews. Therefore, the GSS adopted a new structure for these volunteered responses on the web mode by creating two different versions of forms with one containing the volunteered responses as an option and the other without. Thus, any changes in the public opinion seen in the 2021 GSS data could be due to either actual changes in public opinion or the result of this newly adopted methodology and should be closely monitored and considered in analysis on the survey.
+The GSS has further made changes to the survey response options as a result of the shift from in-person interviews to web and phone-based interviews. Originally the survey contains “volunteered responses” that are not displayed to the responders and is used by the interviewer. An example would be the option “about right” in response to the question “In general, do you think the courts in this area deal too harshly or not harshly enough with criminals?” [@norc]. However, in this year's survey, the interviewers are unable to add these volunteered responses due to the lack of interaction on the web and phone-based interviews. Therefore, the GSS adopted a new structure for these volunteered responses on the web mode by creating two different versions of forms with one containing the volunteered responses as an option and the other without. Thus, any changes in the public opinion seen in the 2021 GSS data could be due to either actual changes in public opinion or the result of this newly adopted methodology and should be closely monitored and considered in analysis on the survey.
 
 Changes in the responses “Don’t Know” and “No Answer” have also been made in the 2021 GSS survey. Traditionally, these options would not be shown to the responders, and it is only recorded if the responder does not wish to answer. On the web mode, however, responders can only skip the question and the option of “No Answer” was removed. The option of “Don’t Know” was also removed from attitudinal questions, which are questions regarding the responder’s point of view,  and is always displayed in light-gray, which is different from standard responses, as an option for factual questions, which are questions regarding facts of the responder. Implementing these changes exposes the survey to more “No Answers” and “Don’t Know” responses, which could lead to loss of information. However, the GSS codebook has stated that a finding shows no significant increase in respondents choosing the options “No Answer” and “Don’t Know,” but they also encourage users to conduct further investigation seeing as this finding is still preliminary.
 
@@ -158,14 +158,15 @@ Other variables, such as sex, sexual orientation, and social class, the report r
 gss2021 <- gss2021 %>% 
   mutate(`Mental Health Score` = hlthmntl) %>%
   mutate(`Physical Health Score` = hlthphys) %>%
-  mutate(`Age when first child born` = agekdbrn)
-USData <- gss2021 %>% select(`Mental Health Score`, `Physical Health Score`, age, `Age when first child born` )
+  mutate(`Age when first child born` = agekdbrn) %>%
+  mutate(`Age` = age)
+USData <- gss2021 %>% select(`Mental Health Score`, `Physical Health Score`, `Age`, `Age when first child born` )
 sumtable(USData,  title = 'US GSS Summary Statistics', out = 'kable')
 ```
 
 Table \@ref(tab:tab1) contains a summary of the variables of interest using vtable[@vtable] and kableExtra[@kableExtra].
 
-From this table, we observe the average mental health of respondents as well as their physical health as below the average of the possible responses (3 being the statistically average response), with a slightly higher average physical health. Their standard deviation, or measure of variation; is nearly identical. We also observe the summary statistics of the age the respondents were when they had their first child. 
+From this table, we observe the average mental health of respondents as well as their physical health as below the average of the possible responses (3 being the statistically average response), with a slightly higher average physical health. Their standard deviation, or measure of variation; is nearly identical. We also observe the summary statistics of the age of the respondents, and when they had their first child. 
 
 # Results
 
