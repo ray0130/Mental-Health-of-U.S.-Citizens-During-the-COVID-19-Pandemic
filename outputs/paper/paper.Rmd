@@ -1,5 +1,5 @@
 ---
-title: "What are the contributing factors to poor mental health in U.S?"
+title: "Mental Health of U.S. Citizens During the COVID-19 Pandemic"
 subtitle: "Analysis of US General Social Survey of 2021"
 author: 
   - Ray Wen, Isfandyar Virani, Rayhan Walia

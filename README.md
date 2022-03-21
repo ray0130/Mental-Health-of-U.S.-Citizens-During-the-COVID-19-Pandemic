@@ -1,4 +1,4 @@
-# What are the contributing factors to poor mental health in U.S?
+# Mental Health of U.S. Citizens During the COVID-19 Pandemic
 
 For this report, we used the US GSS 2021 data to better understand factors that may affect American's mental health.
 
@@ -22,7 +22,7 @@ This script uses the file that is located in the path "inputs/data/2021_stata/gs
 
 ## Building the Report
 
-There is a RMarkDown document located in "outputs/paper/paper.Rmd". This file is used to produce the report "What are the contributing factors to poor mental health in U.S?". It contains the R code to produce the graphs and the report format code. The reference used are also located in "outputs/paper/references.bib".
+There is a RMarkDown document located in "outputs/paper/paper.Rmd". This file is used to produce the report "Mental Health of U.S. Citizens During the COVID-19 Pandemic". It contains the R code to produce the graphs and the report format code. The reference used are also located in "outputs/paper/references.bib".
 
 
 
