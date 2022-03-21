@@ -371,25 +371,25 @@ Finally, we must consider how the mental health rating is provided by the respon
 Our supplementary survey is available here: [https://tinyurl.com/supplemental-MentalHealth](https://tinyurl.com/supplemental-MentalHealth)
 
 Additionally, you can scan this QR code:
-![QR Code for the survey](C:/Users/Isfan/Desktop/Supplemental Survey Screen Shots/QR CODE.png){width=20% height=20%}\
+![QR Code for the survey](supplemental_survey/QR_CODE.png){width=20% height=20%}\
 
 The following images show the screenshots of the online survey form:
 
 
 ```{r echo=FALSE, out.width='100%'}
-knitr::include_graphics('("../../outputs/paper/supplemental survey/001.png')
+knitr::include_graphics('supplemental_survey/001.png')
 ```
 
 ```{r echo=FALSE, out.width='100%'}
-knitr::include_graphics('("../../outputs/paper/supplemental survey/002.png')
+knitr::include_graphics('supplemental_survey/002.png')
 ```
 
 ```{r echo=FALSE, out.width='100%'}
-knitr::include_graphics('("../../outputs/paper/supplemental survey/003.png')
+knitr::include_graphics('supplemental_survey/003.png')
 ```
 
 ```{r echo=FALSE, out.width='100%'}
-knitr::include_graphics('("../../outputs/paper/supplemental survey/004.png')
+knitr::include_graphics('supplemental_survey/004.png')
 ```
 
 
